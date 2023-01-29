@@ -1,8 +1,8 @@
 <template>
   <header
-    class="flex justify-between items-center max-w-[1000px] h-[10%] mx-auto px-4"
+    class="flex justify-between items-center h-[70px] mx-auto px-4 bg-gray-900"
   >
-    <h1>Logo</h1>
+    <img class="w-[150px] lg:w-[250px]" src="/logo.png" />
     <Navbar />
   </header>
 </template>

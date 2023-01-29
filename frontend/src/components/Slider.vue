@@ -3,8 +3,8 @@
     <div class="h-full">
       <img
         class="w-full h-full object-cover"
-        :src="`/photo${number}.jpg`"
-        :alt="number"
+        src="headphone1.avif"
+        alt="number"
       />
       <!-- <h1>{{ number }}</h1> -->
     </div>
