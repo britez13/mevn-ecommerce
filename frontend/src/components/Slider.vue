@@ -1,9 +1,9 @@
 <template>
-  <section class="h-[90%]">
+  <section class="h-[80%]">
     <div class="h-full">
       <img
-        class="w-full h-full object-cover"
-        src="headphone1.avif"
+        class="w-full h-[500px] object-cover"
+        src="headphone.jpg"
         alt="number"
       />
       <!-- <h1>{{ number }}</h1> -->

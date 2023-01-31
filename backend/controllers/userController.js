@@ -5,7 +5,9 @@ const User = require("../models/userModel");
 const register = async (req, res) => {
   const { name, email, password } = req.body;
 
-  console.log(name, email, password);
+
+
+  console.log("Request body: ", req.body);
 
   if (!name || !email || !password) {
     res.status(400).json({ msg: "Please complete all fields" });
@@ -33,6 +35,9 @@ const register = async (req, res) => {
 
 const login = async (req, res) => {
   const { email, password } = req.body;
+
+  console.log("Request body: ", req.body);
+
 
   if (!email || !password) {
     res.status(400).json("Pleae complete all fields");
