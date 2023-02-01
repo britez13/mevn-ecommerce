@@ -1,6 +1,6 @@
 <template>
   <header
-    class="flex justify-between items-center h-[70px] mx-auto px-4 bg-gray-900"
+    class="flex justify-between items-center h-[90px] mx-auto px-4 bg-gray-900"
   >
     <img class="w-[150px] lg:w-[250px]" src="/logo.png" />
     <Navbar />
