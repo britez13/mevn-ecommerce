@@ -4,12 +4,12 @@
     <h1 class="text-center text-2xl font-bold text-gray-700 md:text-4xl" >{{ getPathName.toUpperCase() }}</h1>
     <!-- <p>{{ getCategory }}</p> -->
     <ul class="grid place-items-center md:grid-cols-2 md:gap-2 lg:grid-cols-3 lg:gap-4">
-      <li class="block w-full" v-for="product in getCategory" :key="product.id">
+      <li class="block w-full" v-for="product in getCategory" :key="product._id">
         <div class="flex flex-col md:w-[280px] border border-spacing-1 shadow-md py-8 px-4">
           <img class="block w-full h-[200px] object-contain md:h-[250px]" :src="product.photo" :alt="product.name" />
           <p class="text-center mt-4">{{ product.name }}</p>
           <p class="font-bold text-center mt-4">${{ product.price }}</p>
-          <button class="bg-blue-800 text-white px-4 py-2 mt-2">Add to cart</button>
+          <button @click="onClick(product)" class="bg-blue-800 text-white px-4 py-2 mt-2">Add to cart</button>
         </div>
       </li>
     </ul>
@@ -23,6 +23,13 @@ import store from "../store";
 
 export default {
   name: "Category",
+  methods: {
+    onClick(product) {
+      // console.log(product.name, product._id)
+      store.commit('SET_USER_PRODUCTS', product)
+      console.log(this.$store.state.userProducts)
+    }
+  },
   mounted() {},
   computed: {
     getPathName() {

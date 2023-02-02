@@ -3,6 +3,7 @@ import DefualtLayout from "../components/DefaultLayout.vue"
 import Register from "../views/Register.vue"
 import Login from "../views/Login.vue"
 import Home from "../views/Home.vue"
+import Cart from "../components/Cart.vue"
 import Category from "../components/Category.vue"
 
 const routes = [
@@ -14,6 +15,11 @@ const routes = [
         path: "/",
         name: "home",
         component: Home,
+      },
+      {
+        path: "/cart",
+        name: "cart",
+        component: Cart,
       },
       {
         path: "/category/:categoryName",
