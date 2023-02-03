@@ -1,9 +1,13 @@
 <template>
-    <section>
-  <h1>This is my cart</h1>
+    <section class="flex flex-col items-center">
+  <h1 class="text-gray-700 text-4xl text-center mt-4">This is my cart</h1>
   <div>
-    <div v-for="product in getUserProducts" :key="product._id" >
-        <p>{{ product.name }} {{ product.price }}</p>
+    <div class="flex" v-for="product in getUserProducts" :key="product._id" >
+        <img class="max-w-[100px] w-[100px] h-[100px] max-h-[100px] object-contain" :src="product.photo" :alt="product.name">
+        <div class="flex items-center gap-4">
+        <p>{{ product.price }}</p>
+        <p>{{ product.name }}</p>
+        </div>
     </div>
   </div>
   </section>
