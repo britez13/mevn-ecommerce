@@ -1,63 +1,38 @@
 <template>
-  <section class="h-[80%]">
-    <div class="h-full">
-      <img
-        class="w-full h-[500px] object-cover"
-        src="headphone.jpg"
-        alt="number"
-      />
-      <!-- <h1>{{ number }}</h1> -->
+  <section class="h-[85vh] overflow-hidden">
+    <div class="h-full text-black">
+      <agile :autoplay="true" :autoplay-speed="4000" :speed="500" :infinite="true" >
+        <!-- <img
+          class='w-full h-full'
+          src="/headphone.jpg"
+          alt="number"
+        />
+        <img
+          class='w-full h-full'
+          src="/laptop.jpg"
+          alt="number"
+        /> -->
+        <div class="h-full bg-gray-700">
+          <!-- <p class="text-black">First slide</p> -->
+          <img class="w-full h-[85vh] object-cover object-left " src="/phone-carousel.jpg" alt="number" />
+        </div>
+        <div class="h-full bg-gray-800">
+          
+            <img class="w-full h-[85vh] object-cover object-top" src="/laptop-carousel.jpg" alt="number" />
+    
+        </div>
+      </agile>
     </div>
-    <!-- <div></div>
-        <div></div> -->
   </section>
 </template>
 
 <script>
+import { VueAgile } from "vue-agile";
+
 export default {
   name: "Slider",
-  data() {
-    return {
-      number: 1,
-      message: ''
-    };
+  components: {
+    agile: VueAgile,
   },
-
-  methods: {
-    changeNumber() {
-        this.number++
-    }
-  },
-
-//   methods: {
-//     changePhotoNumber() {
-//       setInterval(function () {
-//         if(this.number == 1) {
-//             this.number++;
-//         } else {
-//             this.number = 1
-//         }
-//       }, 2000);
-//     },
-//   },
-
-//    mounted() {
-//     setInterval(() => {
-//         if(this.number === 1) {
-//             console.log("number 1")
-
-//             return this.number++;
-//         } else {
-//             console.log("number 2")
-
-//             return this.number = 1
-//         }
-//     }, 4000);
-
-
-    // setInterval(() => {
-    //     return this.message = new Date().toLocaleTimeString();
-    // }, 4000)
-
 };
 </script>

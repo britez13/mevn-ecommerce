@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-[1000px] mx-auto mt-8">
+  <div class="max-w-[1000px] min-h-[450px] mx-auto mt-8">
     <!-- <h1>CATEGORY {{ $route.path }} </h1> -->
     <h1 class="text-center text-2xl font-bold text-gray-700 md:text-4xl" >{{ getPathName.toUpperCase() }}</h1>
     <!-- <p>{{ getCategory }}</p> -->

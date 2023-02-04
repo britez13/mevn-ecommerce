@@ -2,14 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* h1,
-h2,
-h3,
-p,
-a {
-  color: whitesmoke;
-} */
-
-/* li{
-  color: #3b82f6
-} */
+div.agile__actions {
+  display: none;
+}
