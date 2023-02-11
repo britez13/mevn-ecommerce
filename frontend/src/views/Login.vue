@@ -38,6 +38,7 @@
 </template>
 
 <script>
+import store from "../store"
 export default {
   name: "Login",
   data() {
@@ -56,8 +57,12 @@ export default {
             body: `email=${this.email}&password=${this.password}`
           })
           const user = await res.json();
-          console.log(user)
-          this.$router.push({path: "/"})
+          if(user.message == 'Invalid credentials') {
+            alert(user.message)
+          } else {
+            store.dispatch("setUser", user)
+            this.$router.push({path: "/"})
+          }
         } catch (error) {
           console.log(error);
         }

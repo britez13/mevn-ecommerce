@@ -1,6 +1,6 @@
 <template>
     <footer class="h-[70px] mt-4 bg-gray-900  flex justify-center items-center">
-        <h1 class="text-white text-4xl">Footer</h1>
+        <p class="text-white lg:text-2xl">&copy;Copyright. All rights reserved.</p>
     </footer>
 </template>
 

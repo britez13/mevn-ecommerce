@@ -1,14 +1,14 @@
 <template>
-  <section class="max-w-[1200px] mx-auto">
-    <h2 class="text-center font-bold text-4xl text-gray-500">
+  <section class="max-w-[1000px] mx-auto">
+    <h2 class="text-center font-bold text-4xl text-gray-500 mt-6">
       Categories<span class="text-6xl font-light text-blue-500">.</span>
     </h2>
-    <ul class="md:grid md:grid-cols-2 md:gap-8 px-2">
+    <ul class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8 mt-4 px-2">
       <li>
         <router-link :to="{path: 'category/keyboard'}">
         <div class="relative">
           <img
-            class="w-full h-[300px] object-cover md:h-[400px] lg:h-[500px] overflow-hidden"
+            class="w-full h-[300px] object-cover md:h-[400px] overflow-hidden"
             src="/keyboard.jpg"
             alt="White keyboard"
           />
@@ -24,7 +24,7 @@
          <router-link :to="{path: 'category/laptop'}">
         <div class="relative">
           <img
-            class="w-full h-[300px] object-cover md:h-[400px] lg:h-[500px]"
+            class="w-full h-[300px] object-cover md:h-[400px]"
             src="/laptop.jpg"
             alt="Laptop on desk"
           />
@@ -40,7 +40,7 @@
         <router-link :to="{path: 'category/headphone'}">
         <div class="relative">
           <img
-            class="w-full h-[300px] object-cover md:h-[400px] lg:h-[500px]"
+            class="w-full h-[300px] object-cover md:h-[400px]"
             src="/headphone.avif"
             alt="Headphone"
           />
@@ -56,7 +56,7 @@
         <router-link :to="{path: 'category/phone'}">
         <div class="relative">
           <img
-            class="w-full h-[300px] object-cover md:h-[400px] lg:h-[500px]"
+            class="w-full h-[300px] object-cover md:h-[400px]"
             src="/phone.avif"
             alt="Phone"
           />

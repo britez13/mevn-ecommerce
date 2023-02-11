@@ -3,38 +3,48 @@ import {createStore} from "vuex"
 
 const store = createStore({
   state: {
-    user: "Florencio",
+    user: "",
     userProducts: [],
     allProducts: [],
   },
   mutations: {
+    SET_USER(state, payload) {
+      state.user = payload
+    },
+
     SET_ALL_PRODUCTS(state, payload) {
       state.allProducts = payload;
     },
+
     SET_USER_PRODUCTS(state, payload) {
       state.userProducts = payload;
     },
+
     INCREASE_AMOUNT(state, payload) {
       state.userProducts = payload;
     },
+
     DECREASE_AMOUNT(state, payload) {
       state.userProducts = payload;
     },
+
     REMOVE_FROM_CART(state, payload) {
       state.userProducts = payload;
     },
   },
   actions: {
+    setUser({ commit }, user) {
+      commit("SET_USER", user)
+    },
+
     setUserProducts({ commit, state }, productToAdd) {
       let newUserProducts = [];
       if (!state.userProducts.length) {
-        console.log("hey it was empty");
         newUserProducts = [{ ...productToAdd, amount: 1 }];
       } else {
         let isNotInArrayYet = true;
         newUserProducts = state.userProducts.map((item) => {
           if (item._id === productToAdd._id) {
-            console.log(typeof item.amount);
             isNotInArrayYet = false;
             return { ...item, amount: (item.amount += 1) };
           }

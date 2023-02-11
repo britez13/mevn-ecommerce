@@ -1,7 +1,7 @@
 <template>
-  <section class="h-[85vh] overflow-hidden">
+  <section class="h-[90vh] overflow-hidden">
     <div class="h-full text-black">
-      <agile :autoplay="true" :autoplay-speed="4000" :speed="500" :infinite="true" >
+      <agile :autoplay="true" :autoplay-speed="5000" :speed="1000" :infinite="true" >
         <!-- <img
           class='w-full h-full'
           src="/headphone.jpg"
@@ -12,15 +12,17 @@
           src="/laptop.jpg"
           alt="number"
         /> -->
-        <div class="h-full bg-gray-700">
-          <!-- <p class="text-black">First slide</p> -->
-          <img class="w-full h-[85vh] object-cover object-left " src="/phone-carousel.jpg" alt="number" />
+
+        <div class="h-full bg-gray-800">
+            <img class="w-full h-[90vh] lg:object-cover object-top" src="/headphonePoster.jpg" alt="number" />    
         </div>
         <div class="h-full bg-gray-800">
-          
-            <img class="w-full h-[85vh] object-cover object-top" src="/laptop-carousel.jpg" alt="number" />
-    
+            <img class="w-full h-[90vh] object-cover" src="/iphonePoster.jpeg" alt="number" />
         </div>
+        <div class="h-full bg-gray-800">
+            <img class="w-full h-[90vh] object-cover" src="/laptopPosterD.jpg" alt="number" />
+        </div>
+         
       </agile>
     </div>
   </section>

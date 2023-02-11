@@ -17,7 +17,7 @@ const register = async (req, res) => {
   const userExists = await User.findOne({ email });
 
   if (userExists) {
-    res.status(400).json({ msg: "User already exists" });
+    res.status(400).send({ msg: "User already exists" });
   }
 
   // Hash password
@@ -40,7 +40,7 @@ const login = async (req, res) => {
 
 
   if (!email || !password) {
-    res.status(400).json("Pleae complete all fields");
+    res.status(400).json("Please complete all fields");
   }
 
   const user =  await User.findOne({ email });
@@ -48,7 +48,7 @@ const login = async (req, res) => {
   if (user && (await bcrypt.compare(password, user.password))) {
     res.status(200).json({ name: user.name, email, token: generateToken(user.id) });
   } else {
-    res.status(400).json("Invalid credentials");
+    res.status(400).send({message: "Invalid credentials"});
   }
 };
 

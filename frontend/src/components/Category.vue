@@ -25,17 +25,12 @@ export default {
   name: "Category",
   methods: {
     onClick(productToAdd) {
-      
-      // const newUserProdcuctsState= store.getters.getUserProducts.map(product => {
-      //   // console.log("Hey")
-      //   if(product._id === productToAdd._id) {
-      //     return {...product, amount: product.amount++}
-      //   }
-      //   return {...product, amount: 1}
-      // })
-      // console.log(newUserProdcuctsState)
-      this.$store.dispatch("setUserProducts", productToAdd)
-      // console.log(this.$store.state.userProducts)
+      if(store.state.user) {
+        this.$store.dispatch("setUserProducts", productToAdd)
+      }
+      else {
+        this.$router.push({path: "/login"})
+      }
     }
   },
   mounted() {},
