@@ -58,7 +58,7 @@ const store = createStore({
         }
       }
       commit("SET_USER_PRODUCTS", newUserProducts);
-      console.log(state.userProducts);
+      // console.log(state.userProducts);
     },
 
     increaseAmount({ commit, state }, id) {

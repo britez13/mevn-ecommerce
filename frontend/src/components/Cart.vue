@@ -43,7 +43,7 @@
       </div>
     </div>
     <div v-if="getTotalPrice">
-      <p>Total Price ${{ getTotalPrice }}</p>
+      <p>Total Price ${{ getTotalPrice.toFixed(2) }}</p>
     </div>
   </section>
 </template>
@@ -53,13 +53,33 @@ import store from "../store";
 export default {
   name: "Cart",
   methods: {
-    increaseAmount(id) {
+    async increaseAmount(id) {
       store.dispatch("increaseAmount", id);
+      const res = await fetch("http://localhost:5000/api/users/products", {
+        method: 'PUT',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${JSON.parse(localStorage.getItem('user')).token}`
+        },
+        body: JSON.stringify(store.getters.getUserProducts)
+      })
+      console.log(store.getters.getUserProducts)
     },
-    decreaseAmount(id) {
+    async decreaseAmount(id) {
       store.dispatch("decreaseAmount", id);
+      const res = await fetch("http://localhost:5000/api/users/products", {
+        method: 'PUT',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${JSON.parse(localStorage.getItem('user')).token}`
+        },
+        body: JSON.stringify(store.getters.getUserProducts)
+      })
+      console.log(store.getters.getUserProducts)
     },
-    removeFromCart(id) {
+    async removeFromCart(id) {
       store.dispatch("removeFromCart", id);
     },
   },

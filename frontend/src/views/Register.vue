@@ -70,6 +70,7 @@ export default {
             alert(user.message)
           } else {
             store.dispatch("setUser", user)
+            localStorage.setItem('user', JSON.stringify(user))
             this.$router.push({path: "/"})
           }
           console.log(user)

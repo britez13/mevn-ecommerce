@@ -9,7 +9,7 @@
           <img class="block w-full h-[200px] object-contain md:h-[250px]" :src="product.photo" :alt="product.name" />
           <p class="text-center mt-4">{{ product.name }}</p>
           <p class="font-bold text-center mt-4">${{ product.price }}</p>
-          <button @click="onClick(product)" class="bg-blue-800 text-white px-4 py-2 mt-2">Add to cart</button>
+          <button @click="onClick(product)" class="bg-blue-500 text-white px-4 py-2 mt-2">Add to cart</button>
         </div>
       </li>
     </ul>
@@ -24,9 +24,19 @@ import store from "../store";
 export default {
   name: "Category",
   methods: {
-    onClick(productToAdd) {
+    async onClick(productToAdd) {
       if(store.state.user) {
         this.$store.dispatch("setUserProducts", productToAdd)
+        const res = await fetch('http://localhost:5000/api/users/products', {
+          method: 'PUT',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${JSON.parse(localStorage.getItem('user')).token}`
+          },
+          body: JSON.stringify(store.getters.getUserProducts)
+        })
+        // console.log(store.getters.getUserProducts)
       }
       else {
         this.$router.push({path: "/login"})
