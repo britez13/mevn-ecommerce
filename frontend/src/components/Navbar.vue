@@ -21,6 +21,6 @@
                 if(this.$store.state.user.name.length >= 10) return this.$store.state.user.name.slice(0, 10) + "..."
                 return this.$store.state.user.name
             }
-        }
+        },
     }
 </script>

@@ -61,9 +61,7 @@ export default {
             alert(user.message)
           } else {
             store.dispatch("setUser", user)
-            if(!localStorage.getItem('user')) {
-              localStorage.setItem('user', JSON.stringify(user))
-            }
+            localStorage.setItem(`${user.email}`, JSON.stringify(user))
             this.$router.push({path: "/"})
           }
         } catch (error) {

@@ -5,8 +5,6 @@ const User = require("../models/userModel");
 const register = async (req, res) => {
   const { name, email, password } = req.body;
 
-  // console.log("Request body: ", req.body);
-
   if (!name || !email || !password) {
     res.status(400).json({ msg: "Please complete all fields" });
   }
@@ -34,9 +32,6 @@ const register = async (req, res) => {
 const login = async (req, res) => {
   const { email, password } = req.body;
 
-  // console.log("Request body: ", req.body);
-
-
   if (!email || !password) {
     res.status(400).json("Please complete all fields");
   }
@@ -44,38 +39,34 @@ const login = async (req, res) => {
   const user =  await User.findOne({ email });
 
   if (user && (await bcrypt.compare(password, user.password))) {
-    // console.log(user)
     res.status(200).json({name: user.name, email, token: generateToken(user.id) });
   } else {
     res.status(400).send({message: "Invalid credentials"});
   }
 };
 
+const getUserProducts = async(req, res) => {
+  console.log(req.params.id)
+  // try {
+  //   const userProducts = await User.findById(req.user.id).savedProducts;
+  //   res.status(200).json(userProducts)
+  // } catch (error) {
+  //   console.log(error)
+  // }
+}
+
 // User products
 const updateUserProducts = async(req, res) => {
   const userProductsToUpdate = req.body
-  let userId 
-  // console.log("-----------------------")
-  // console.log(userProducts)
-  // console.log("-----------------------");
-
-  if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")) {
-    try {
-      const token = req.headers.authorization.split(" ")[1]
-      userId = jwt.verify(token, process.env.JWT_SECRET).id
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
-  if(userId && userProductsToUpdate) {
-    await User.findByIdAndUpdate(userId, {
+  
+  if (req.user.id && userProductsToUpdate) {
+    await User.findByIdAndUpdate(req.user.id, {
       savedProducts: userProductsToUpdate,
     });
   }
+
   res.send("Trying to figure out")
 }
-
 
 function generateToken(id) {
   return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "10d" });
@@ -84,5 +75,6 @@ function generateToken(id) {
 module.exports = {
   register,
   login,
+  getUserProducts,
   updateUserProducts
 };

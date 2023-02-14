@@ -15,6 +15,6 @@ export default {
   name: "HeaderComp",
   components: {
     Navbar
-  }
+  }, 
 };
 </script>

@@ -60,7 +60,7 @@ export default {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${JSON.parse(localStorage.getItem('user')).token}`
+          'Authorization': `Bearer ${JSON.parse(localStorage.getItem(store.state.user.email)).token}`
         },
         body: JSON.stringify(store.getters.getUserProducts)
       })
@@ -73,7 +73,7 @@ export default {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${JSON.parse(localStorage.getItem('user')).token}`
+          'Authorization': `Bearer ${JSON.parse(localStorage.getItem(store.state.user.email)).token}`
         },
         body: JSON.stringify(store.getters.getUserProducts)
       })
